@@ -18,5 +18,9 @@ export default [
   {
     from: 'app/Models',
     to: 'src/infra/database/models'
+  },
+  {
+    from: 'app/Listeners',
+    to: 'src/app/events'
   }
 ]

@@ -10,7 +10,7 @@ export default class ConfigMoveRevert extends BaseCommand {
       from: item.to,
       to: item.from
     }));
-    const moveFile = new MoveFile()
+    const moveFile = new MoveFile(this.application, this.logger)
     await moveFile.execute(revertedData)
   }
 }

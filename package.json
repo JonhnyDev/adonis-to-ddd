@@ -1,6 +1,6 @@
 {
   "name": "adonis-to-ddd",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "Convert adonisJS folder design to DDD Domain-Driven Design",
   "files": [
     "build/",
@@ -44,11 +44,8 @@
   },
   "adonisjs": {
     "types": "adonis-to-ddd",
-    "providers": [
-      "adonis-to-ddd"
-    ],
     "commands": [
-      "adonis-to-ddd/build/src/commands"
+      "adonis-to-ddd/build/commands"
     ]
   },
   "dependencies": {}

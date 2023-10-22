@@ -7,13 +7,13 @@ export default class DDDConfig extends BaseCommand {
   public async run(): Promise<void> {
     const rootDir = this.application.cliCwd || this.application.appRoot
     const rcFile = new files.AdonisRcFile(rootDir)
-    rcFile.set('exceptionHandlerNamespace', "src/interfaces/http/exceptions/Handler")
+    rcFile.set('exceptionHandlerNamespace', "Src/interfaces/http/exceptions/Handler")
     rcFile.set('directories', {
       "database": "src/infra/database",
       "migrations": "src/infra/database/migrations",
-      "public": "src/interfaces/http/public",
-      "views": "src/interfaces/http/resources/views",
-      "resources": "src/interfaces/http/resources/resources",
+      "public": "public",
+      "resources": "resources",
+      "views": "resources/views",
     })
     rcFile.set('namespaces', {
       "controllers": "src/interfaces/http/controllers",
