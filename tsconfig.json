@@ -1,4 +1,8 @@
 {
+    "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
+    "files": [
+      "./node_modules/@adonisjs/core/build/adonis-typings/index.d.ts"
+    ],
     "compilerOptions": {
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
@@ -10,8 +14,12 @@
       "noUnusedParameters": true,
       "noImplicitReturns": true,
       "noFallthroughCasesInSwitch": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "baseUrl": "./src",
+      "paths": {
+        "@app/*": ["*"]
+      }
     },
-    "include": ["**/*"],
+    "include": ["./src", "./commands"],
     "exclude": ["node_modules", "**/*.test.ts"]
   }

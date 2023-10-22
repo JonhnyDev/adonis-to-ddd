@@ -1,4 +1,4 @@
-import { BaseCommand } from '@adonisjs/core/build/standalone' // ManifestGenerator
+import { BaseCommand } from '@adonisjs/core/build/standalone'
 import { files } from '@adonisjs/sink'
 
 export default class DDDConfig extends BaseCommand {

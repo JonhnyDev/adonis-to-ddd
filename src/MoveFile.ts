@@ -1,33 +1,26 @@
-import type { Logger } from "@poppinss/cliui/build/src/Logger"
-import { ApplicationContract } from '@ioc:Adonis/Core/Application';
 import { existsSync, readdir, stat, copyFile, unlink, access, mkdir } from 'fs-extra'
 import path from 'path'
-
+import Logger from '@ioc:Adonis/Core/Logger'
+import Application from '@ioc:Adonis/Core/Application';
 interface Data {
   from: string;
   to: string
 }
 
 class MoveFile {
-  private logger: Logger;
-  private application: ApplicationContract
-  constructor(logger: Logger, application: ApplicationContract) {
-    this.logger = logger
-    this.application = application
-  }
   public async execute(data: Array<Data>): Promise<void> {
-    this.logger.info(`Start move files`);
+    Logger.info(`Start move files`);
     for(const value of data){
-      const fromPath = path.join(this.application.appRoot, value.from);
-      const toPath = path.join(this.application.appRoot, value.to);
+      const fromPath = path.join(Application.appRoot, value.from);
+      const toPath = path.join(Application.appRoot, value.to);
 
       try {
         await this.moveFilesRecursively(fromPath, toPath);
       } catch (error: any) {
-        this.logger.error(`Error moving files: ${error.message}`);
+        Logger.error(`Error moving files: ${error.message}`);
       }
     }
-    this.logger.success('All files moved');
+    Logger.info('All files moved');
     return
   }
   private async moveFilesRecursively(sourceDir: string, destinationDir: string): Promise<void> {
@@ -51,7 +44,7 @@ class MoveFile {
         await this.ensureDir(destinationPath);
         await copyFile(sourcePath, destinationPath);
         await unlink(sourcePath);
-        this.logger.info(`Moved ${path.relative(this.application.appRoot, sourcePath)} to ${path.relative(this.application.appRoot, destinationPath)}`);
+        Logger.info(`Moved ${path.relative(Application.appRoot, sourcePath)} to ${path.relative(Application.appRoot, destinationPath)}`);
       }
     }
   }

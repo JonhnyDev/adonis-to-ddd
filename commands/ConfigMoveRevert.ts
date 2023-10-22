@@ -1,5 +1,5 @@
 import { BaseCommand } from '@adonisjs/core/build/standalone';
-import data from '../dataPaths'
+import data from '../src/dataPaths'
 import MoveFile from '../src/MoveFile';
 
 export default class ConfigMoveRevert extends BaseCommand {
@@ -10,7 +10,7 @@ export default class ConfigMoveRevert extends BaseCommand {
       from: item.to,
       to: item.from
     }));
-    const moveFile = new MoveFile(this.logger, this.application)
+    const moveFile = new MoveFile()
     await moveFile.execute(revertedData)
   }
 }

@@ -2,10 +2,12 @@
   "name": "adonis-to-ddd",
   "version": "1.0.0",
   "description": "Convert adonisJS folder design to DDD Domain-Driven Design",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "files": [
+    "build/",
+    "README.md"
+  ],
   "scripts": {
-    "build": "tsc --declaration",
+    "build": "tsc --skipLibCheck",
     "test": "jest"
   },
   "repository": {
@@ -18,23 +20,27 @@
     "adonisJS",
     "adonis"
   ],
-  "author": "",
+  "author": "Jonathan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JonhnyDev/adonis-to-ddd/issues"
   },
   "homepage": "https://github.com/JonhnyDev/adonis-to-ddd#readme",
   "devDependencies": {
+    "@adonisjs/ace": "^11.0.1",
+    "@adonisjs/application": "^5.1.2",
+    "@adonisjs/core": "^5.1.6",
+    "@adonisjs/fold": "^8.1.2",
+    "@adonisjs/logger": "^4.0.2",
+    "@adonisjs/sink": "^5.1.3",
+    "@adonisjs/mrm-preset": "^3.0.0",
     "@types/node": "^18.15.12",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
-  "dependencies": {
-    "@adonisjs/ace": "^11.0.1",
-    "@adonisjs/application": "^5.1.2",
-    "@adonisjs/core": "^5.1.6",
-    "@adonisjs/sink": "^5.1.3"
+  "peerDependencies": {
+    "@adonisjs/core": "^5.0.4-preview-rc"
   },
   "adonisjs": {
     "types": "adonis-to-ddd",
@@ -44,5 +50,6 @@
     "commands": [
       "adonis-to-ddd/build/src/commands"
     ]
-  }
+  },
+  "dependencies": {}
 }
